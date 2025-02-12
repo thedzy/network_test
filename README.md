@@ -3,16 +3,37 @@
 Crude monitor for the internet for interruptions
 
 ## What?
-### network_test.sh, network_test.py, ping_test.py
+### network_quality.py, network_test.sh, network_test.py, ping_test.py
 A very basic network test that either crawls a website sends a ping, does a dns lookup or establishes a connection, every second.
+#### network_quality.py
+Based on Apples networkQuality utility, plots the data
+![network_quality.py](media/network_quality.png)
+Usage:
+```bash
+usage: network_quality.py [-h] [-d DATA_POINTS] [--log LOG_FILE]
+
+ping_test.py: Continuous network ping test
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d DATA_POINTS, --data-points DATA_POINTS
+                        how many data points to plot, default 500
+  --log LOG_FILE        output log 
+```
+
+#### network_test.sh
+Based on wget --spider, streams the output of messages
 
 Usage:
-network_test.sh
 ``` bash
 network_test.sh <site>
 ```
 
-network_test.py
+#### network_test.py
+Uses python sock to establish a connection
+
+![network_test.py](media/network_test.png)
+Usage:
 ``` bash
 usage: network_test.py [-h] [-d DATA_POINTS] [-H HOST PORT TIMEOUT] [--log LOG_FILE]
 
@@ -27,7 +48,11 @@ optional arguments:
   --log LOG_FILE        output log
 ```
 
-ping_test.py
+#### ping_test.py
+Pings servers or makes dns queries
+
+![ping_test.py](media/ping_test.png)
+Usage:
 ``` bash
 usage: ping_test.py [-h] [-r REGION] [-R RELIABILITY | -T TOP_DNS] [-d DATA_POINTS] [-t DEFAULT_TIMEOUT] [--filter-long FILTER_LONG] [--filter-failures] [-H HOSTs) [HOST(s ...]] [--dns-lookup | --ping] [--log LOG_FILE]
 
